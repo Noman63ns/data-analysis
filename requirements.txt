@@ -10,4 +10,4 @@ jwt
 werkzeug
 flask-jwt-extended
 gunicorn
-Werkzeug
+
