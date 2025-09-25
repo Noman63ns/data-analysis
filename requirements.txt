@@ -1,4 +1,4 @@
-flask
+
 streamlit
 pandas
 numpy
@@ -6,8 +6,6 @@ matplotlib
 seaborn
 scipy
 scikit-learn
-jwt
-werkzeug
-flask-jwt-extended
-gunicorn
+
+
 
