@@ -40,7 +40,7 @@ if page == "Upload Data":
         if file_type in ['csv', 'txt']:
             st.session_state.df = pd.read_csv(uploaded_file)
 
-         elif file_type == 'mat':
+        elif file_type == 'mat':
              mat_data = loadmat(uploaded_file)
              for key in mat_data:
                  if not key.startswith('__') and isinstance(mat_data[key], np.ndarray):
@@ -345,4 +345,5 @@ if page == "Download Data" and st.session_state.df is not None:
     st.subheader("💾 Download Cleaned Dataset")
     csv = st.session_state.df.to_csv(index=False).encode('utf-8')
     st.download_button("Download CSV", csv, "cleaned_data.csv", "text/csv")
+
 
