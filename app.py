@@ -1,22 +1,3 @@
-import streamlit as st
-import jwt
-
-SECRET_KEY = "YOUR_SECRET_KEY"
-
-# --- JWT validation ---
-query_params = st.experimental_get_query_params()
-token = query_params.get("token", [None])[0]
-
-if not token:
-    st.error("🚫 Unauthorized. Please login first.")
-    st.stop()
-
-try:
-    decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-    st.sidebar.success(f"✅ Logged in as {decoded['user']}")
-except Exception as e:
-    st.error("🚫 Invalid or expired token. Please login again.")
-    st.stop()
 
 import streamlit as st
 import pandas as pd
@@ -364,3 +345,4 @@ if page == "Download Data" and st.session_state.df is not None:
     st.subheader("💾 Download Cleaned Dataset")
     csv = st.session_state.df.to_csv(index=False).encode('utf-8')
     st.download_button("Download CSV", csv, "cleaned_data.csv", "text/csv")
+
